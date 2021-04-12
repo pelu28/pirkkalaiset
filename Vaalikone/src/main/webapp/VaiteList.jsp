@@ -29,7 +29,7 @@
                 <tr>
                     <td><c:out value="${vaittama.id}" /></td>
                     <td><c:out value="${vaittama.otsikko}" /></td>
-                    <td><c:out value="${vaittama.vaite_teksti}" /></td>
+                    <td><c:out value="${vaittama.vaite}" /></td>
                     <td><c:out value="${vaittama.luokka}" /></td>
                     <td>
                         <a href="/edit?id=<c:out value='${vaittama.id}' />">Edit</a>

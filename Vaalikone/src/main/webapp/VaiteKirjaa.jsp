@@ -9,9 +9,9 @@
     <center>
         <h1>Vaalikone Hallinta</h1>
         <h2>
-            <a href="/new">Add New Book</a>
+            <a href="/new">Lisää uusi väittämä</a>
             &nbsp;&nbsp;&nbsp;
-            <a href="/list">List All Books</a>
+            <a href="/list">Listaa kaikki väittämät</a>
              
         </h2>
     </center>
@@ -26,10 +26,10 @@
             <caption>
                 <h2>
                     <c:if test="${vaittama != null}">
-                        Edit Book
+                        Muokkaa Väittämä
                     </c:if>
                     <c:if test="${vaittama == null}">
-                        Add New Book
+                        Lisää uusi väittämä
                     </c:if>
                 </h2>
             </caption>
@@ -37,7 +37,7 @@
                     <input type="hidden" name="id" value="<c:out value='${vaittama.id}' />" />
                 </c:if>           
             <tr>
-                <th>Title: </th>
+                <th>Otsikko: </th>
                 <td>
                     <input type="text" name="otsikko" size="45"
                             value="<c:out value='${vaittama.otsikko}' />"
@@ -45,15 +45,15 @@
                 </td>
             </tr>
             <tr>
-                <th>Author: </th>
+                <th>Väite: </th>
                 <td>
                     <input type="text" name="vaite_teksti" size="45"
-                            value="<c:out value='${vaittama.vaite_teksti}' />"
+                            value="<c:out value='${vaittama.vaite}' />"
                     />
                 </td>
             </tr>
             <tr>
-                <th>Price: </th>
+                <th>Luokka: </th>
                 <td>
                     <input type="text" name="luokka" size="5"
                             value="<c:out value='${vaittama.luokka}' />"

@@ -9,9 +9,9 @@
     <center>
         <h1>Vaalikone Hallinta</h1>
         <h2>
-            <a href="/new">Add New Book</a>
+            <a href="/new">Lisää uusi väittämä</a>
             &nbsp;&nbsp;&nbsp;
-            <a href="/list">List All Books</a>
+            <a href="/list">Listaa kaikki väittämät</a>
              
         </h2>
     </center>

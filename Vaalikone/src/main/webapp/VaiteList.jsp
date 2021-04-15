@@ -39,6 +39,9 @@
                 </tr>
             </c:forEach>
         </table>
+    <form action="${pageContext.request.contextPath}/logout" method="post">
+    <input type="submit" value="logout" />
+</form>
     </div>   
 </body>
 </html>

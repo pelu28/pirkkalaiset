@@ -8,7 +8,7 @@ public class UserDAO {
             ClassNotFoundException {
         String jdbcURL = "jdbc:mysql://localhost:3306/vaalikone";
         String dbUser = "root";
-        String dbPassword = "caution12";
+        String dbPassword = "1234";
  
         Class.forName("com.mysql.jdbc.Driver");
         Connection connection = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);

@@ -4,14 +4,15 @@
 <html>
 <head>
     <title>Vaalikone Sivusto</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
 </head>
 <body>
     <center>
         <h1>Vaalikone Hallinta</h1>
         <h2>
-            <a href="/new">Lisää uusi väittämä</a>
+            <a href="/new">Lisää väittämä</a>
             &nbsp;&nbsp;&nbsp;
-            <a href="/list">Listaa kaikki väittämät</a>
+            <a href="/list">Listaa väittämät</a>
              
         </h2>
     </center>
@@ -38,6 +39,7 @@
                     </td>
                 </tr>
             </c:forEach>
+            
         </table>
     </div>   
 </body>

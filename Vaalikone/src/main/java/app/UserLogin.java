@@ -1,6 +1,7 @@
 package app;
 
 import java.io.*;
+import java.io.Serializable;
 import java.sql.SQLException;
  
 import javax.servlet.*;
@@ -11,13 +12,13 @@ import data.User;
 import data.UserDAO;
  
 @WebServlet("/login")
-public class UserLogin extends HttpServlet {
+public class UserLogin implements Serializable {
     private static final long serialVersionUID = 1L;
  
     public UserLogin() {
         super();
     }
- 
+    	
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String email = request.getParameter("email");

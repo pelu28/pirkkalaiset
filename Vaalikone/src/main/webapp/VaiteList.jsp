@@ -28,6 +28,7 @@
             </thead>
             <tbody>
             <c:forEach var="vaittama" items="${listVaittamat}">
+            	
                 <tr>
                     <td><c:out value="${vaittama.id}" /></td>
                     <td><c:out value="${vaittama.otsikko}" /></td>
@@ -39,13 +40,11 @@
                         <a href="/delete?id=<c:out value='${vaittama.id}' />" class="action">Delete</a>                     
                     </td>
                 </tr>
-                
-                <c:set var="vastausvaihtoehdot" value="${vastausvaihtoehto}" />
-                	<tr>
-                		<td colspan=5><c:out value="${vastausvaihtoehdot.vaihtoehto_teksti}" /></td>
-                	</tr>
-                
-
+							<c:forEach var="table" items="${listVastausvaihtoehdot}">  
+							<tr>  
+							<td><c:out value="${table.teksti}"/></td>  
+							</tr>  
+							</c:forEach>
             </c:forEach>
             </tbody>
         </table>

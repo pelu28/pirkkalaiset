@@ -7,22 +7,22 @@
     <link rel="stylesheet" type="text/css" href="styles.css"/>
 </head>
 <body>
-    <center>
+    <div class="background" align="center">
         <h1>Vaalikone Hallinta</h1>
         <h2>
-            <a href="/answers">Listaa väittämät</a>
+            <a href="/answers" class="button">Listaa väittämät</a>
              
         </h2>
-	
-    </center>
     <div align="center">
-        <table border="1" cellpadding="5">
-            <caption><h2>Lista vastausvaihtoehdoista</h2></caption>
+        <table class="styled-table">
+            <caption><h2 class="subtitle">Lista vastausvaihtoehdoista</h2></caption>
+            <thead>
             <tr>
                 <th>Numero</th>
                 <th>Vaihtoehdon teksti</th>
-
             </tr>
+            </thead>
+            <tbody>
             <c:forEach var="vastausvaihtoehdot" items="${listVastausvaihtoehdot}">
                 <tr>
                     <td><c:out value="${vastausvaihtoehdot.nro}" /></td>
@@ -30,8 +30,9 @@
 
                 </tr>
             </c:forEach>
-            
+            </tbody>
         </table>
-    </div>   
+    </div>
+</div>  
 </body>
 </html>

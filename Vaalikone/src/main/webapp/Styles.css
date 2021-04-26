@@ -1,5 +1,6 @@
 @charset "ISO-8859-1";
 
+
 h1 {
 	background-color: #9fc4ea;
 	width: 50%;
@@ -39,6 +40,25 @@ body {
 	font-family: "Roboto";
 }
 
+input[type=email], input[type=password] { 
+        width: 100%; 
+        margin: 8px 0;
+        padding: 12px 20px; 
+        display: inline-block; 
+        border: 2px solid gray; 
+        box-sizing: border-box;
+        border-radius: 4px;
+    }
+   
+.container { 
+	width:20%;
+	padding: 25px; 
+	background-color: #c1e2bc;
+	text-align:left;
+	border-radius: 4px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+} 
+
 input[type=submit] {
   background-color: #86c881;
   border: 2px solid #303030;
@@ -50,6 +70,24 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
+  cursor: pointer;
+}
+
+button.login {
+  background-color: #86c881;
+  border: 2px solid #303030;
+  color: #303030;
+  font-weight: bold;
+  padding: 12px 12px;
+  text-decoration: none;
+  margin: 2px 2px;
+  text-align:center;
+  border-radius: 4px;
+  width: 100%;
+  font-size:1.1em;
+}
+
+button.login:hover {
   cursor: pointer;
 }
 
@@ -97,6 +135,7 @@ a.action:hover {
     font-size: 1em;
     min-width: 600px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
 }
 
 .styled-table thead tr {
@@ -122,4 +161,26 @@ a.action:hover {
 
 .styled-table tbody tr:last-of-type {
     border-bottom: 2px solid #86c881;
+}
+
+.footer {
+position: absolute;
+  bottom: 10px;
+  height: 40px;
+  width: 260px;;
+  text-align: center;
+  background-color: #ff8026;
+  font-weight: bold;
+  padding-top: 20px;
+  margin-left:-130px;
+  left:50%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+
+}
+
+#error {
+	color: red;
+	font-family: "Roboto";
+	font-size: 1.2em;
 }

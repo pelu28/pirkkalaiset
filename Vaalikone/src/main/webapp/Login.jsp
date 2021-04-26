@@ -4,20 +4,24 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Vaalikone sivusto</title>
+<title>Vaalikone | Login</title>
+<link rel="stylesheet" type="text/css" href="styles.css"/>
 </head>
 <body>
-    <div style="text-align: center">
-        <h1>Admin Login</h1>
+    <div class="background" align="center">
+    
+        <h1>Vaalikoneen Hallinta | Kirjautuminen</h1>
         <form action="login" method="post">
-            <label for="email">Email:</label>
-            <input name="email" size="30" />
+        <div class="container">
+            <label for="email">Sähköposti:</label>
+            <input type="email" name="email" size="30" />
             <br><br>
-            <label for="password">Password:</label>
+            <label for="password">Salasana:</label>
             <input type="password" name="password" size="30" />
-            <br>${message}
+            <br><pre id="error">${message}</pre>
             <br><br>           
-            <button type="submit">Login</button>
+        <button type="submit" class="login">Kirjaudu</button>
+        </div>
         </form>
     </div>
 </body>

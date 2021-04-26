@@ -1,18 +1,19 @@
 package app;
 
 import java.io.*;
-import java.io.Serializable;
+//import java.io.Serializable;
 import java.sql.SQLException;
  
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
+
 import data.User;
 import data.UserDAO;
  
 @WebServlet("/login")
-public class UserLogin implements Serializable {
+public class UserLogin extends HttpServlet {
     private static final long serialVersionUID = 1L;
  
     public UserLogin() {
@@ -28,14 +29,14 @@ public class UserLogin implements Serializable {
          
         try {
             User user = userDao.checkLogin(email, password);
-            String destPage = "login.jsp";
+            String destPage = "Login.jsp";
              
             if (user != null) {
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user);
                 destPage = "VaiteList.jsp";
             } else {
-                String message = "Invalid email/password";
+                String message = "Väärä käyttäjätunnus / salasana";
                 request.setAttribute("message", message);
             }
              

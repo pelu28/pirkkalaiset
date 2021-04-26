@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
+import java.io.Serializable;
 
 import data.User;
 import data.UserDAO;
@@ -27,12 +28,12 @@ public class UserLogin extends HttpServlet {
          
         try {
             User user = userDao.checkLogin(email, password);
-            String destPage = "login.jsp";
+            String destPage = "Login.jsp";
              
             if (user != null) {
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user);
-                destPage = "VaiteList.jsp";
+                destPage = "Home.jsp";
             } else {
                 String message = "Invalid email/password";
                 request.setAttribute("message", message);

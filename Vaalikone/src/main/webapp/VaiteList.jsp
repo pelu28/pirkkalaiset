@@ -19,18 +19,18 @@
         <table border="1" cellpadding="5">
             <caption><h2>Lista väitteistä</h2></caption>
             <tr>
-                <th>ID</th>
-                <th>Otsikko</th>
+                <%--<th>ID</th> --%>
+            <%--    <th>Otsikko</th> --%>
                 <th>Vaite</th>
-                <th>Luokka</th>
+            <%--    <th>Luokka</th> --%>
                 <th>Actions</th>
             </tr>
             <c:forEach var="vaittama" items="${listVaittamat}">
                 <tr>
-                    <td><c:out value="${vaittama.id}" /></td>
-                    <td><c:out value="${vaittama.otsikko}" /></td>
+                   <%-- <td><c:out value="${vaittama.id}" /></td> --%>
+                   <%--  <td><c:out value="${vaittama.otsikko}" /></td> --%>
                     <td><c:out value="${vaittama.vaite}" /></td>
-                    <td><c:out value="${vaittama.luokka}" /></td>
+                 <%--   <td><c:out value="${vaittama.luokka}" /></td> --%>
                     <td>
                         <a href="/edit?id=<c:out value='${vaittama.id}' />">Edit</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;

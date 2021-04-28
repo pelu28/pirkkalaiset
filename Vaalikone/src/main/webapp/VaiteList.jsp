@@ -54,7 +54,7 @@
             </tbody>
         </table>
     </div>
-    <div class="footer">
+    <div class="topright">
     	<a href="/logout">Kirjaudu ulos</a>
     </div>
     

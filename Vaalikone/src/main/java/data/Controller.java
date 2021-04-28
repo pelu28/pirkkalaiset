@@ -69,6 +69,8 @@ public class Controller extends HttpServlet {
             throws SQLException, IOException, ServletException {
         List<Vaittamat> listVaittamat = vaittamatDao.listAllVaittamat();
         request.setAttribute("listVaittamat", listVaittamat);
+        List<Vastausvaihtoehdot> listVastausvaihtoehdot = vastausvaihtoehdotDao.listAllVastausvaihtoehdot();
+        request.setAttribute("listVastausvaihtoehdot", listVastausvaihtoehdot);
         RequestDispatcher dispatcher = request.getRequestDispatcher("VaiteList.jsp");
         dispatcher.forward(request, response);
     }

@@ -23,7 +23,7 @@
         <c:if test="${vaittama == null}">
             <form action="insert" method="post">
         </c:if>
-        <table class="styled-table">
+        <table class="styled-table" id="narrow">
             <caption>
                 <h2 class="subtitle">
                     <c:if test="${vaittama != null}">
@@ -47,7 +47,7 @@
             <tr>
                 <th>Otsikko: </th>
                 <td>
-                    <input type="text" name="otsikko" size="45"
+                    <input type="text" name="otsikko" size="20"
                             value="<c:out value='${vaittama.otsikko}' />"
                         />
                 </td>
@@ -55,7 +55,7 @@
             <tr>
                 <th>Väite: </th>
                 <td>
-                    <input type="text" name="vaite_teksti" size="45"
+                    <input type="text" name="vaite_teksti" size="60"
                             value="<c:out value='${vaittama.vaite}' />"
                     />
                 </td>
@@ -63,7 +63,7 @@
             <tr>
                 <th>Luokka: </th>
                 <td>
-                    <input type="text" name="luokka" size="5"
+                    <input type="text" name="luokka" size="10"
                             value="<c:out value='${vaittama.luokka}' />"
                     />
                 </td>

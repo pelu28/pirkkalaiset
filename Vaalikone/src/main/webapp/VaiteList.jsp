@@ -40,11 +40,16 @@
                         <a href="/delete?id=<c:out value='${vaittama.id}' />" class="action">Delete</a>                     
                     </td>
                 </tr>
-							<c:forEach var="table" items="${listVastausvaihtoehdot}">  
-							<tr>  
-							<td><c:out value="${table.teksti}"/></td>  
-							</tr>  
-							</c:forEach>
+				
+				<tr>
+				<c:forEach var="vastaus" items="${listVastausvaihtoehdot}"> 
+				
+					<td><input type="radio"><c:out value="${vastaus.teksti}"/></td>
+				 
+				</c:forEach>
+				</tr>
+				
+							
             </c:forEach>
             </tbody>
         </table>

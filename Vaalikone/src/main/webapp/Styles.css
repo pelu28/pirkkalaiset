@@ -136,6 +136,12 @@ a.action:hover {
     min-width: 600px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
     border-radius: 4px;
+    table-layout: fixed;
+    width:80%
+}
+
+#narrow {
+	width:50% !important;
 }
 
 .styled-table thead tr {
@@ -157,6 +163,7 @@ a.action:hover {
 
 .styled-table tbody tr:nth-of-type(odd) {
     background-color: white;
+    font-weight: bold;
 }
 
 .styled-table tbody tr:last-of-type {
@@ -164,7 +171,7 @@ a.action:hover {
 }
 
 .footer {
-position: absolute;
+  position: absolute;
   bottom: 10px;
   height: 40px;
   width: 260px;;

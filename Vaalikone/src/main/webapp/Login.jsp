@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Vaalikone | Login</title>
+<title>Vaalikone | Kirjaudu</title>
 <link rel="stylesheet" type="text/css" href="styles.css"/>
 </head>
 <body>

@@ -70,7 +70,7 @@
             </tr>
             <tr>
                 <td colspan="2" align="center">
-                    <input type="submit" value="Tallenna" />
+                    <input type="submit" class="save" value="Tallenna" />
                 </td>
             </tr>
             </tbody>

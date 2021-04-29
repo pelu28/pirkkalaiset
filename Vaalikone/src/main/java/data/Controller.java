@@ -50,14 +50,11 @@ public class Controller extends HttpServlet {
             case "/update":
                 updateVaittamat(request, response);
                 break;
-            case "/answers":
-                listVastausvaihtoehdot(request, response);
-                break;
             case "/list":
                 listVaittamat(request, response);
                 break;
             default:
-                //listVaittamat(request, response);
+                listVaittamat(request, response);
                 break;
             }
         } catch (SQLException ex) {
@@ -72,14 +69,6 @@ public class Controller extends HttpServlet {
         List<Vastausvaihtoehdot> listVastausvaihtoehdot = vastausvaihtoehdotDao.listAllVastausvaihtoehdot();
         request.setAttribute("listVastausvaihtoehdot", listVastausvaihtoehdot);
         RequestDispatcher dispatcher = request.getRequestDispatcher("VaiteList.jsp");
-        dispatcher.forward(request, response);
-    }
-    
-    private void listVastausvaihtoehdot(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException, ServletException {
-        List<Vastausvaihtoehdot> listVastausvaihtoehdot = vastausvaihtoehdotDao.listAllVastausvaihtoehdot();
-        request.setAttribute("listVastausvaihtoehdot", listVastausvaihtoehdot);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("VastausList.jsp");
         dispatcher.forward(request, response);
     }
  

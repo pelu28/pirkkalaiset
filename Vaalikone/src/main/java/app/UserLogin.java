@@ -1,12 +1,13 @@
 package app;
 
 import java.io.*;
+//import java.io.Serializable;
 import java.sql.SQLException;
  
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
-import java.io.Serializable;
+
 
 import data.User;
 import data.UserDAO;
@@ -18,7 +19,7 @@ public class UserLogin extends HttpServlet {
     public UserLogin() {
         super();
     }
- 
+    	
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String email = request.getParameter("email");
@@ -33,9 +34,9 @@ public class UserLogin extends HttpServlet {
             if (user != null) {
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user);
-                destPage = "Home.jsp";
+                destPage = "VaiteList.jsp";
             } else {
-                String message = "Invalid email/password";
+                String message = "Väärä käyttäjätunnus / salasana";
                 request.setAttribute("message", message);
             }
              

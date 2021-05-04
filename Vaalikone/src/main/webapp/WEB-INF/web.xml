@@ -18,7 +18,7 @@
  
     <context-param>
         <param-name>jdbcPassword</param-name>
-        <param-value>root123</param-value>
+        <param-value>1234</param-value>
     </context-param>
  
     <servlet>
@@ -35,4 +35,5 @@
         <exception-type>java.lang.Exception</exception-type>
         <location>/Error.jsp</location>
     </error-page>
+    
 </web-app>

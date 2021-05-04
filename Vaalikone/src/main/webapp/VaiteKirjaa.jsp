@@ -4,14 +4,15 @@
 <html>
 <head>
     <title>Vaalikone Sivusto</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
 </head>
 <body>
-    <center>
+    <div class="background" align="center">
         <h1>Vaalikone Hallinta</h1>
         <h2>
-            <a href="/new">Lisää uusi väittämä</a>
+            <a href="/new" class="button">Lisää uusi väittämä</a>
             &nbsp;&nbsp;&nbsp;
-            <a href="/list">Listaa kaikki väittämät</a>
+            <a href="/list" class="button">Listaa kaikki väittämät</a>
              
         </h2>
     </center>
@@ -22,9 +23,9 @@
         <c:if test="${vaittama == null}">
             <form action="insert" method="post">
         </c:if>
-        <table border="1" cellpadding="5">
+        <table class="styled-table" id="narrow">
             <caption>
-                <h2>
+                <h2 class="subtitle">
                     <c:if test="${vaittama != null}">
                         Muokkaa Väittämä
                     </c:if>
@@ -33,13 +34,20 @@
                     </c:if>
                 </h2>
             </caption>
+            <thead>
+            	<tr>
+            		<th colspan="2"> </th>
+            	</tr>
+            </thead>
+            <tbody>
                 <c:if test="${vaittama != null}">
                     <input type="hidden" name="id" value="<c:out value='${vaittama.id}' />" />
-                </c:if>           
+                </c:if>
+                      
             <tr>
                 <th>Otsikko: </th>
                 <td>
-                    <input type="text" name="otsikko" size="45"
+                    <input type="text" name="otsikko" size="20"
                             value="<c:out value='${vaittama.otsikko}' />"
                         />
                 </td>
@@ -47,7 +55,7 @@
             <tr>
                 <th>Väite: </th>
                 <td>
-                    <input type="text" name="vaite_teksti" size="45"
+                    <input type="text" name="vaite_teksti" size="60"
                             value="<c:out value='${vaittama.vaite}' />"
                     />
                 </td>
@@ -55,18 +63,20 @@
             <tr>
                 <th>Luokka: </th>
                 <td>
-                    <input type="text" name="luokka" size="5"
+                    <input type="text" name="luokka" size="10"
                             value="<c:out value='${vaittama.luokka}' />"
                     />
                 </td>
             </tr>
             <tr>
                 <td colspan="2" align="center">
-                    <input type="submit" value="Save" />
+                    <input type="submit" class="save" value="Tallenna" />
                 </td>
             </tr>
+            </tbody>
         </table>
         </form>
-    </div>   
+    </div> 
+    </div>
 </body>
 </html>

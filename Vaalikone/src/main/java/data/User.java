@@ -1,13 +1,11 @@
 package data;
-
-import java.io.Serializable;
-
-public class User implements Serializable{
+ 
+public class User {
     private int id;
     private String fullname;
     private String email;
     private String password;
-
+	
     public int getId() {
 		return id;
 	}

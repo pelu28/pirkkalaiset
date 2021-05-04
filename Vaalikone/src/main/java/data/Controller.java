@@ -9,10 +9,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+
  
 public class Controller extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private VaittamatDao vaittamatDao;
+    private VastausvaihtoehdotDao vastausvaihtoehdotDao;
  
     public void init() {
         String jdbcURL = getServletContext().getInitParameter("jdbcURL");
@@ -20,7 +23,7 @@ public class Controller extends HttpServlet {
         String jdbcPassword = getServletContext().getInitParameter("jdbcPassword");
  
         vaittamatDao = new VaittamatDao(jdbcURL, jdbcUsername, jdbcPassword);
- 
+        vastausvaihtoehdotDao = new VastausvaihtoehdotDao(jdbcURL, jdbcUsername, jdbcPassword);
     }
  
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -49,6 +52,9 @@ public class Controller extends HttpServlet {
             case "/update":
                 updateVaittamat(request, response);
                 break;
+            case "/list":
+                listVaittamat(request, response);
+                break;
             default:
                 listVaittamat(request, response);
                 break;
@@ -62,6 +68,8 @@ public class Controller extends HttpServlet {
             throws SQLException, IOException, ServletException {
         List<Vaittamat> listVaittamat = vaittamatDao.listAllVaittamat();
         request.setAttribute("listVaittamat", listVaittamat);
+        List<Vastausvaihtoehdot> listVastausvaihtoehdot = vastausvaihtoehdotDao.listAllVastausvaihtoehdot();
+        request.setAttribute("listVastausvaihtoehdot", listVastausvaihtoehdot);
         RequestDispatcher dispatcher = request.getRequestDispatcher("VaiteList.jsp");
         dispatcher.forward(request, response);
     }

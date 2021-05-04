@@ -178,7 +178,6 @@ class MockHttpServletResponse implements HttpServletResponse {
   }
 
   // Servlet API 3.0 and 3.1 methods
-  @Override
   public void setContentLengthLong(long length) {
   }
 

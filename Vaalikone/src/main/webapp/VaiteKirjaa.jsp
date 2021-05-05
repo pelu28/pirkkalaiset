@@ -9,7 +9,9 @@
 <body>
 <%
 	response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // private sivu, ei tallenna keksejä, joten back nappi ei vie edelliseen sessio sivulle
-
+    response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
+    response.setDateHeader("Expires", 0); // Proxies.
+    
 	if(session.getAttribute("user")==null) // ookkona kirjautuneena
 		response.sendRedirect("Login.jsp"); // jos ei ole, niin takaisin login sivulle ohjaus
 %>

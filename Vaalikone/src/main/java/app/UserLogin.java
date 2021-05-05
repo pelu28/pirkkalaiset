@@ -34,7 +34,8 @@ public class UserLogin extends HttpServlet {
             if (user != null) {
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user);
-                destPage = "/list";
+                response.sendRedirect(request.getContextPath() + "/list"); //uusin muutos
+                //destPage = "/list";
             } else {
                 String message = "Väärä käyttäjätunnus / salasana";
                 request.setAttribute("message", message);

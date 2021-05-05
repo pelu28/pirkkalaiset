@@ -1,0 +1,223 @@
+@charset "ISO-8859-1";
+
+
+h1 {
+	background-color: #9fc4ea;
+	width: 50%;
+	padding: 10px 0;
+	border-radius: 4px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+	color:#303030;
+}
+
+h2.subtitle {
+	background-color: #ff8026;
+	padding: 10px 0;
+	border-radius: 4px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+	color:#303030;
+}
+
+div.background {
+  margin: 0 auto;
+}
+
+div.background::after {
+  content: "";
+  background: url("https://nationwideradiojm.com/wp-content/uploads/2020/09/Polls.png");
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+body {
+	font-family: "Roboto";
+}
+
+input[type=email], input[type=password] { 
+        width: 100%; 
+        margin: 8px 0;
+        padding: 12px 20px; 
+        display: inline-block; 
+        border: 2px solid gray; 
+        box-sizing: border-box;
+        border-radius: 4px;
+    }
+
+input[type=text] { 
+        /*margin: 8px 0;
+        width: 50%;*/
+        padding: 12px 12px; 
+        display: inline-block; 
+        border: 2px solid gray; 
+        box-sizing: border-box;
+        border-radius: 4px;
+    }
+
+.container { 
+	width:20%;
+	padding: 25px; 
+	background-color: #c1e2bc;
+	text-align:left;
+	border-radius: 4px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+} 
+
+input[type=submit] {
+  background-color: #86c881;
+  border: 2px solid #303030;
+  color: #303030;
+  font-weight: bold;
+  padding: 8px 8px;
+  text-decoration: none;
+  margin: 2px 2px;
+}
+
+input[type=submit]:hover {
+  cursor: pointer;
+}
+
+button.login {
+  background-color: #86c881;
+  border: 2px solid #303030;
+  color: #303030;
+  font-weight: bold;
+  padding: 12px 12px;
+  text-decoration: none;
+  margin: 2px 2px;
+  text-align:center;
+  border-radius: 4px;
+  width: 100%;
+  font-size:1.1em;
+}
+
+button.login:hover {
+  cursor: pointer;
+}
+
+input.save {
+  background-color: #86c881;
+  border: 2px solid #303030;
+  color: #303030;
+  font-weight: bold;
+  padding: 8px 8px;
+  text-decoration: none;
+  margin: 2px 2px;
+  text-align:center;
+  border-radius: 4px;
+  /*width: 100%;
+  font-size:1.1em;*/
+}
+
+input.save:hover {
+  cursor: pointer;
+}
+
+a {
+	text-decoration:none;
+}
+a:link {
+  color: #303030;
+}
+
+a:visited {
+  color: #303030;
+}
+
+a.action {
+	color: #4e9ddb;
+}
+
+a.action:hover {
+	color: #303030;
+}
+
+.button {
+  padding: 16px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 4px 2px;
+  transition-duration: 0.2s;
+  border-radius: 4px;
+  background-color: #9fc4ea;
+  border: 2px solid gray;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+}
+
+.button:hover {
+	background-color: #A9A9A9;
+	color:black;
+}
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 15px 0;
+    font-size: 1em;
+    min-width: 600px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    table-layout: fixed;
+    width:80%
+}
+
+#narrow {
+	width:40% !important;
+	text-align: left;
+	table-layout: auto;
+}
+
+.styled-table thead tr {
+    background-color:#86c881;
+    text-align: left;
+}
+
+.styled-table th,.styled-table td {
+    padding: 15px 15px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 2px solid gray;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:nth-of-type(odd) {
+    background-color: white;
+    font-weight: bold;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #86c881;
+}
+
+.topright {
+  position: absolute;
+  top: 8px;
+  right:8px;
+  height: 40px;
+  width: 160px;;
+  text-align: center;
+  background-color: white;
+  border: 2px solid #ff8026;
+  font-weight: bold;
+  padding-top: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+
+}
+
+#error {
+	color: red;
+	font-family: "Roboto";
+	font-size: 1.2em;
+}

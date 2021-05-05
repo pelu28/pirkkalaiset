@@ -4,18 +4,12 @@
     "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Error</title>
+<title>Virhe</title>
 </head>
 <body>
     <center>
-        <h1>Error</h1>
+        <h1>Virhe</h1>
         <h2><%=exception.getMessage() %><br/> </h2>
     </center>
-</body>
-</html><meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-
 </body>
 </html>

@@ -35,7 +35,7 @@ public class VaittamatDao {
      
     protected void disconnect() throws SQLException {
         if (jdbcConnection != null && !jdbcConnection.isClosed()) {
-            jdbcConnection.close();
+            jdbcConnection.close(); 
         }
     }
      

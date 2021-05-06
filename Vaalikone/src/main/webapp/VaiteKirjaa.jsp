@@ -7,15 +7,16 @@
     <link rel="stylesheet" type="text/css" href="styles.css"/>
 </head>
 <body>
+<%
+	response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // private sivu, ei tallenna keksejä, joten back nappi ei vie edelliseen sessio sivulle
+    response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
+    response.setDateHeader("Expires", 0); // Proxies.
+    
+	if(session.getAttribute("user")==null) // ookkona kirjautuneena
+		response.sendRedirect("Login.jsp"); // jos ei ole, niin takaisin login sivulle ohjaus
+%>
     <div class="background" align="center">
         <h1>Vaalikone Hallinta</h1>
-        <h2>
-            <a href="/new" class="button">Lisää uusi väittämä</a>
-            &nbsp;&nbsp;&nbsp;
-            <a href="/list" class="button">Listaa kaikki väittämät</a>
-             
-        </h2>
-    </center>
     <div align="center">
         <c:if test="${vaittama != null}">
             <form action="update" method="post">
@@ -27,7 +28,7 @@
             <caption>
                 <h2 class="subtitle">
                     <c:if test="${vaittama != null}">
-                        Muokkaa Väittämä
+                        Muokkaa väittämää
                     </c:if>
                     <c:if test="${vaittama == null}">
                         Lisää uusi väittämä
@@ -76,6 +77,9 @@
             </tbody>
         </table>
         </form>
+        <h2>
+            <a href="/list" class="button">Peruuta</a> 
+        </h2>
     </div> 
     </div>
 </body>

@@ -3,13 +3,13 @@ package data;
 import java.sql.*;
  
 public class UserDAO {
-
+	// method for checking login for sql database 
 	public User checkLogin(String email, String password) throws SQLException,
             ClassNotFoundException {
         
 		String jdbcURL = "jdbc:mysql://localhost:3306/vaalikone";
         String dbUser = "root";
-        String dbPassword = "1234";
+        String dbPassword = "caution12";
  
         Class.forName("com.mysql.jdbc.Driver");
         Connection connection = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);

@@ -32,12 +32,14 @@ public class Controller extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String action = request.getServletPath();
- 
+        
         try {
             switch (action) {
+            //add new form
             case "/new":
                 showNewForm(request, response);
                 break;
+            // insert new "Väittämä"
             case "/insert":
                 insertVaittamat(request, response);
                 break;

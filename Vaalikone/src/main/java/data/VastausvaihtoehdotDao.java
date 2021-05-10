@@ -10,17 +10,21 @@ import java.util.ArrayList;
 import java.util.List;
  
 public class VastausvaihtoehdotDao {
+	
+	// Luokan tietotyypit
     private String jdbcURL;
     private String jdbcUsername;
     private String jdbcPassword;
     private Connection jdbcConnection;
      
+    // Alustus
     public VastausvaihtoehdotDao(String jdbcURL, String jdbcUsername, String jdbcPassword) {
         this.jdbcURL = jdbcURL;
         this.jdbcUsername = jdbcUsername;
         this.jdbcPassword = jdbcPassword;
     }
      
+    // Yhteyden muodostus
     protected void connect() throws SQLException {
         if (jdbcConnection == null || jdbcConnection.isClosed()) {
             try {
@@ -39,7 +43,7 @@ public class VastausvaihtoehdotDao {
         }
     }
      
-     
+    // Listaa vastausvaihtoehdot
     public List<Vastausvaihtoehdot> listAllVastausvaihtoehdot() throws SQLException { 
         List<Vastausvaihtoehdot> listVastausvaihtoehdot = new ArrayList<>();
          
@@ -66,6 +70,7 @@ public class VastausvaihtoehdotDao {
         return listVastausvaihtoehdot;
     }
     
+    // Hae vastausvaihtoehto
     public Vastausvaihtoehdot getVastausvaihtoehto(int vaihtoehto_nro) throws SQLException {
         Vastausvaihtoehdot vastausvaihtoehto = null;
         String sql = "SELECT * FROM vastausvaihtoehdot WHERE vaihtoehto_nro = ?";

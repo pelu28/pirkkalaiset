@@ -2,12 +2,15 @@ package data;
 import java.io.*;
 
 public class User implements Serializable{
+	
+	// Luokan tietotyypit
 	private static final long serialVersionUID = 1L;
     private int id;
     private String fullname;
     private String email;
     private String password;
 	
+    // Getterit ja setterit
     public int getId() {
 		return id;
 	}

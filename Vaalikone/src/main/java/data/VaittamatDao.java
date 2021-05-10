@@ -10,17 +10,21 @@ import java.util.ArrayList;
 import java.util.List;
  
 public class VaittamatDao {
+	
+	// Luokan tietotyypit
     private String jdbcURL;
     private String jdbcUsername;
     private String jdbcPassword;
     private Connection jdbcConnection;
-     
+    
+    // Alustus 
     public VaittamatDao(String jdbcURL, String jdbcUsername, String jdbcPassword) {
         this.jdbcURL = jdbcURL;
         this.jdbcUsername = jdbcUsername;
         this.jdbcPassword = jdbcPassword;
     }
      
+    // Yhteyden muodostus
     protected void connect() throws SQLException {
         if (jdbcConnection == null || jdbcConnection.isClosed()) {
             try {
@@ -39,6 +43,7 @@ public class VaittamatDao {
         }
     }
      
+    // Lisää väittämä
     public boolean insertVaittamat(Vaittamat vaittama) throws SQLException {
         String sql = "INSERT INTO vaittama (otsikko, vaite_teksti, luokka) VALUES (?, ?, ?)";
         connect();
@@ -53,7 +58,8 @@ public class VaittamatDao {
         disconnect();
         return rowInserted;
     }
-     
+    
+    // Listaa väittämät
     public List<Vaittamat> listAllVaittamat() throws SQLException {
         List<Vaittamat> listVaittamat = new ArrayList<>();
          
@@ -81,7 +87,8 @@ public class VaittamatDao {
          
         return listVaittamat;
     }
-     
+    
+    // Poista väittämä
     public boolean deleteVaittamat(Vaittamat vaittama) throws SQLException {
         String sql = "DELETE FROM vaittama where vaittama_id = ?";
          
@@ -96,6 +103,7 @@ public class VaittamatDao {
         return rowDeleted;     
     }
      
+    // Muokkaa väittämää
     public boolean updateVaittamat(Vaittamat vaittama) throws SQLException {
         String sql = "UPDATE vaittama SET otsikko = ?, vaite_teksti = ?, luokka = ?";
         sql += " WHERE vaittama_id = ?";
@@ -113,6 +121,7 @@ public class VaittamatDao {
         return rowUpdated;     
     }
      
+    // Hae väittämä
     public Vaittamat getVaittamat(int id) throws SQLException {
         Vaittamat vaittama = null;
         String sql = "SELECT * FROM vaittama WHERE vaittama_id = ?";

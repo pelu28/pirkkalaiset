@@ -7,6 +7,7 @@ public class UserDAO {
 	public User checkLogin(String email, String password) throws SQLException,
             ClassNotFoundException {
         
+		// Tietokantayhteyden parametrit
 		String jdbcURL = "jdbc:mysql://localhost:3306/vaalikone";
         String dbUser = "root";
         String dbPassword = "1234";

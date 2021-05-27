@@ -38,7 +38,7 @@ public class EhdokkaatService {
 	@Path("/addehdokas")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Ehdokkaat postPrey(Ehdokkaat ehdokkaat) {
+	public Ehdokkaat postEhdokkaat(Ehdokkaat ehdokkaat) {
 		EntityManagerFactory emf=Persistence.createEntityManagerFactory("Vaalikone2");
 		EntityManager em=emf.createEntityManager();
 		em.getTransaction().begin();

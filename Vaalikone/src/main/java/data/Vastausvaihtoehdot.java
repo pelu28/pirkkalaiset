@@ -1,10 +1,12 @@
 package data;
 
 public class Vastausvaihtoehdot {
+	
+	// Luokan tietotyypit
     protected int nro;
     protected String teksti;
 
- 
+    // Muodostimet
     public Vastausvaihtoehdot() {
     }
  
@@ -21,6 +23,7 @@ public class Vastausvaihtoehdot {
         this.teksti = teksti;
     }
      
+    // Getterit ja setterit
     public int getNro() {
         return nro;
     }

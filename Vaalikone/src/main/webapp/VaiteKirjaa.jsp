@@ -18,12 +18,15 @@
     <div class="background" align="center">
         <h1>Vaalikone Hallinta</h1>
     <div align="center">
+    
+    	<!-- Tutkitaan onko päivitys vai uuden lisäys -->
         <c:if test="${vaittama != null}">
             <form action="update" method="post">
         </c:if>
         <c:if test="${vaittama == null}">
             <form action="insert" method="post">
         </c:if>
+        
         <table class="styled-table" id="narrow">
             <caption>
                 <h2 class="subtitle">

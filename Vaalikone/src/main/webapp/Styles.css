@@ -1,6 +1,10 @@
 @charset "ISO-8859-1";
 
+body {
+	font-family: "Roboto";
+}
 
+/* Otsikkotyylit h1, h2 */
 h1 {
 	background-color: #9fc4ea;
 	width: 50%;
@@ -22,6 +26,7 @@ div.background {
   margin: 0 auto;
 }
 
+/* Taustakuva */
 div.background::after {
   content: "";
   background: url("https://nationwideradiojm.com/wp-content/uploads/2020/09/Polls.png");
@@ -36,10 +41,7 @@ div.background::after {
   background-size: 100% 100%;
 }
 
-body {
-	font-family: "Roboto";
-}
-
+/* Login-lomake */
 input[type=email], input[type=password] { 
         width: 100%; 
         margin: 8px 0;
@@ -51,8 +53,6 @@ input[type=email], input[type=password] {
     }
 
 input[type=text] { 
-        /*margin: 8px 0;
-        width: 50%;*/
         padding: 12px 12px; 
         display: inline-block; 
         border: 2px solid gray; 
@@ -69,6 +69,7 @@ input[type=text] {
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
 } 
 
+/* Painiketyylit */
 input[type=submit] {
   background-color: #86c881;
   border: 2px solid #303030;
@@ -119,6 +120,7 @@ input.save:hover {
   cursor: pointer;
 }
 
+/* Linkkityylit */
 a {
 	text-decoration:none;
 }
@@ -157,6 +159,7 @@ a.action:hover {
 	color:black;
 }
 
+/* Taulukkotyylit */
 .styled-table {
     border-collapse: collapse;
     margin: 15px 0;
@@ -200,6 +203,7 @@ a.action:hover {
     border-bottom: 2px solid #86c881;
 }
 
+/* Logout-painike */
 .topright {
   position: absolute;
   top: 8px;
@@ -216,6 +220,7 @@ a.action:hover {
 
 }
 
+/* Kirjautumisen virhe */
 #error {
 	color: red;
 	font-family: "Roboto";

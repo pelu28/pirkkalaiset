@@ -21,37 +21,36 @@
         <table class="styled-table">
             <caption><h2 class="subtitle">Väittämät</h2></caption>
             <thead>
-            <tr>
-                <th>ID</th>
-                <th>Otsikko</th>
-                <th>Vaite</th>
-                <th>Luokka</th>
-                <th>Actions</th>
-            </tr>
+	            <tr>
+	                <th>ID</th>
+	                <th>Otsikko</th>
+	                <th>Vaite</th>
+	                <th>Luokka</th>
+	                <th>Actions</th>
+	            </tr>
             </thead>
             <tbody>
-            <c:forEach var="vaittama" items="${listVaittamat}" varStatus="loop">
-            	
-                <tr>
-                    <td><c:out value="${vaittama.id}" /></td>
-                    <td><c:out value="${vaittama.otsikko}" /></td>
-                    <td><c:out value="${vaittama.vaite}" /></td>
-                    <td><c:out value="${vaittama.luokka}" /></td>
-                    <td>
-                        <a href="/edit?id=<c:out value='${vaittama.id}' />" class="action">Edit</a>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="/delete?id=<c:out value='${vaittama.id}' />" class="action">Delete</a>                     
-                    </td>
-                </tr>
-				
-				<tr>
-				<c:forEach var="vastaus" items="${listVastausvaihtoehdot}"> 
-				
-					<td><input type="radio" name="vastaus${loop.index+1}"><c:out value="${vastaus.teksti}"/></td>
-				 
-				</c:forEach>
-				</tr>
-            </c:forEach>
+            	<!-- Tulostetaan taulukon jokaiselle riville väittämän tiedot kannasta ja seuraavalle riville vastausvaihtoehdot kannasta -->
+            	<c:forEach var="vaittama" items="${listVaittamat}" varStatus="loop">
+	                <tr>
+	                    <td><c:out value="${vaittama.id}" /></td>
+	                    <td><c:out value="${vaittama.otsikko}" /></td>
+	                    <td><c:out value="${vaittama.vaite}" /></td>
+	                    <td><c:out value="${vaittama.luokka}" /></td>
+	                    <td>
+	                        <a href="/edit?id=<c:out value='${vaittama.id}' />" class="action">Edit</a>
+	                        &nbsp;&nbsp;&nbsp;&nbsp;
+	                        <a href="/delete?id=<c:out value='${vaittama.id}' />" class="action">Delete</a>                     
+	                    </td>
+	                </tr>
+					
+					<tr>
+					<c:forEach var="vastaus" items="${listVastausvaihtoehdot}">
+						<!-- loop.index-kikalla saadaan radiobuttonit omiksi ryhmikseen, eli vain yksi voidaan valita joka riviltä -->
+						<td><input type="radio" name="vastaus${loop.index+1}"><c:out value="${vastaus.teksti}"/></td>
+					</c:forEach>
+					</tr>
+            	</c:forEach>
             </tbody>
         </table>
         <h2>

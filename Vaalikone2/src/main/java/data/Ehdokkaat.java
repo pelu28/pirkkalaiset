@@ -1,11 +1,14 @@
 package data;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Ehdokkaat {
@@ -21,7 +24,8 @@ public class Ehdokkaat {
     private String lahiosoite;
     private String miksi;
     
-    
+    @JsonManagedReference //To handle converting object to JSON and backwards
+	private List<Ehdokkaat> ehdokkaatlist;
     
    
     public Ehdokkaat() {
@@ -171,6 +175,10 @@ public class Ehdokkaat {
 
 	public void setMiksi(String miksi) {
 		this.miksi = miksi;
+	}
+	
+	public String toString() {
+		return id+": "+puolue+" / ";
 	}
 }
    

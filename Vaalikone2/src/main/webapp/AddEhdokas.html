@@ -54,7 +54,7 @@ Miksi: <input id='miksi' type='text' name='miksi' value='' placeholder='Uusi per
 <p id='inparts'>The response in parts will be shown here!
 </p>
 <h2>Fill in - this form uses FormParameters</h2>
-<form action="./rest/ehdokkaatservice/addehdokas" method='post'>
+<form action="./ehdokkaatclient" method='post'>
 Ehdokasnro: <input id='ehdokasnro' type='text' name='ehdokasnro' value='' placeholder='uusi ehdokasnro'><br>
 Puolue: <input id='puolue' type='text' name='puolue' value='' placeholder='uusi puolue'><br>
 Etunimi: <input id='etunimi' type='text' name='etunimi' value='' placeholder='uusi etunimi'><br>
@@ -65,6 +65,15 @@ Lahiosoite: <input id='lahiosoite' type='text' name='lahiosoite' value='' placeh
 Miksi: <input id='miksi' type='text' name='miksi' value='' placeholder='Uusi perustelu'><br>
 <input type='submit' name='ok' value='Send'><br>
 </form>
+<a href="ehdokkaat.jsp">Katso lista ehdokkaista</a>
+<a href="rest/ehdokkaatservice/allsdp">SDP</a> 
+<a href="rest/ehdokkaatservice/all">RKP</a>
+<a href="url">PS</a> 
+<a href="url">Kok.</a>
+<a href="url">SDP</a> 
+<a href="url">Vihr.</a>
+<a href="./addpuolueandehdokas">Luo puolueen ja kaksi ehdokasta</a> 
+<a href="./addehdokasnotpuolue">Luo ehdokkaan mutta ei puoluetta</a>
 </body>
 </html>
 

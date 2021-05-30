@@ -1,5 +1,5 @@
 package app;
- 
+
 import java.io.IOException;
  
 import javax.servlet.*;
@@ -7,10 +7,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
  
 @WebServlet("/logout")
-public class UserLogout extends HttpServlet {
+public class Logout extends HttpServlet {
     private static final long serialVersionUID = 1L;
  
-    public UserLogout() {
+    public Logout() {
         super();
     }
  

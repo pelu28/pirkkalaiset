@@ -84,9 +84,10 @@
                     <td><c:out value="${ehdokkaat.postitoimipaikka}" /></td>
                     <td><c:out value="${ehdokkaat.lahiosoite}" /></td>
                     <td><c:out value="${ehdokkaat.miksi}" /></td>
-                    <td>  <a href="./ehdokkaatclient?deleteId=${ehdokkaat.id}">Remove</a><br>    </td>
+                    
                 </tr>
             </c:forEach>
+         
         </table>
         <a href="rest/ehdokkaatservice/all">Ehdokkaat JSON-muodossa</a>
         

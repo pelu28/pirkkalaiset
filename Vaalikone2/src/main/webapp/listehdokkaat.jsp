@@ -12,8 +12,8 @@
     response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
     response.setDateHeader("Expires", 0); // Proxies.
     
-//	if(session.getAttribute("user")==null) // ookkona kirjautuneena
-//		response.sendRedirect("addehdokas.html"); // jos ei ole, niin takaisin login sivulle ohjaus
+	if(session.getAttribute("user")==null) // ookkona kirjautuneena
+		response.sendRedirect("Login.jsp"); // jos ei ole, niin takaisin login sivulle ohjaus
 %>
     <div class="background" align="center">
         <h1>Ehdokkaat</h1>

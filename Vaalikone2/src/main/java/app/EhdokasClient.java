@@ -21,20 +21,20 @@ import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import dao.EhdokkaatDao; 
-import data.*;
+import dao.EhdokkaatDao;
+import data.Ehdokkaat;
 
 
 /**
  * Servlet implementation class BookClient
  */
-@WebServlet("/ehdokkaatclient")
-public class EhdokkaatClient extends HttpServlet {
+@WebServlet("/ehdokasclient")
+public class EhdokasClient extends HttpServlet {
     private static final long serialVersionUID = 1L;
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EhdokkaatClient() {
+    public EhdokasClient() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -50,14 +50,14 @@ public class EhdokkaatClient extends HttpServlet {
         String deleteId=request.getParameter("deleteId");
        
         //Including an HTML form + start of the html page
-        RequestDispatcher rd=request.getRequestDispatcher("./ehdokasform.html");
+        RequestDispatcher rd=request.getRequestDispatcher("ehdokkaat.jsp");
         rd.include(request,  response);
 
        
         boolean deleteOk=false;
         if (deleteId!=null) {
-            if (deleteEhdokkaat(deleteId)) {
-                out.println("Ehdokas on poistettu!<br>");
+            if (deleteEhdokas(deleteId)) {
+                out.println("Ehdokas has been removed!<br>");
             }
         }
        
@@ -79,14 +79,14 @@ public class EhdokkaatClient extends HttpServlet {
         //And print the objects
         for (int i=0;i<returnedList.size();i++) {
             Ehdokkaat ehdokkaat=returnedList.get(i);
-            out.println(ehdokkaat+" <a href='./ehdokkaatclient?deleteId="+ehdokkaat.getId()+"'>Poista ehdokas</a><br>");
+            out.println(ehdokkaat+" <a href='./ehdokasclient?deleteId="+ehdokkaat.getId()+"'>Remove</a><br>");
         }
        
         //Printing the end of an html document
         out.println("</body></html>");
     }
 
-    private boolean deleteEhdokkaat(String deleteId) {
+    private boolean deleteEhdokas(String deleteId) {
         String uri = "http://127.0.0.1:8080/rest/ehdokkaatservice/deleteehdokas/"+deleteId;
 
         Client asiakas=ClientBuilder.newClient();
@@ -102,7 +102,7 @@ public class EhdokkaatClient extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
-        String uri = "http://127.0.0.1:8080/rest/ehdokkaatservice/addehdokas";
+        String uri = "http://127.0.0.1:8080/rest/ehdokaservice/addoneehdokas";
 
         //A Book object to send to our web-service
         String ehdokasnro=request.getParameter("ehdokasnro");

@@ -20,17 +20,16 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-
-import dao.EhdokkaatDao;
+import dao.EhdokasDao;
 import data.Ehdokkaat;
 
-@Path("/ehdokkaatservice")
-public class EhdokkaatService {
+@Path("/ehdokaservice")
+public class EhdokasService {
     @POST
-    @Path("/addehdokas")
+    @Path("/addoneehdokas")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void saveEhdokkaat(Ehdokkaat ehdokkaat) {
-        EhdokkaatDao.addEhdokas(ehdokkaat);
+    public void saveEhdokas(Ehdokkaat ehdokkaat) {
+        EhdokasDao.addEhdokas(ehdokkaat);
     }
    
 
@@ -38,12 +37,12 @@ public class EhdokkaatService {
     @Path("/getall")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Ehdokkaat> getAll(){
-        return EhdokkaatDao.getEhdokkaat();
+        return EhdokasDao.getEhdokas();
     }
 
     @DELETE
-    @Path("/deleteehdokas/{id}")
+    @Path("/delete/{id}")
     public boolean deleteEhdokas(@PathParam("id") int id) {
-        return EhdokkaatDao.deleteEhdokkaat(id);
+        return EhdokasDao.deleteEhdokas(id);
     }
 }

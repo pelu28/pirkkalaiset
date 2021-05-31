@@ -8,7 +8,7 @@ import javax.persistence.Persistence;
 
 import data.Ehdokkaat;
 
-public class EhdokkaatDao {
+public class EhdokasDao {
     private static EntityManagerFactory emf;
     private static EntityManager getEntityManager() {
         if (emf==null) {
@@ -25,14 +25,14 @@ public class EhdokkaatDao {
         em.close();
     }
    
-    public static List<Ehdokkaat> getEhdokkaat(){
+    public static List<Ehdokkaat> getEhdokas(){
         EntityManager em=getEntityManager();
         List<Ehdokkaat> list=em.createQuery("select a from Ehdokkaat a").getResultList();
         em.close();
         return list;
     }
 
-    public static boolean deleteEhdokkaat(int id) {
+    public static boolean deleteEhdokas(int id) {
         EntityManager em=getEntityManager();
         Ehdokkaat b=em.find(Ehdokkaat.class, id);
         if (b!=null) {

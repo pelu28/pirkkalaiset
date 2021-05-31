@@ -45,10 +45,10 @@ public class ReadEhdokkaat extends HttpServlet {
 		out.println("<ol>");
 		for (Ehdokkaat ehdokkaat:list) {
 			out.println("<li>Ehdokkaat: "+ehdokkaat);
-			out.println("<ol>");
+			
 			
 			}
-			out.println("</ol>");
+			
 		}
 		
 	/**

@@ -28,7 +28,7 @@
 }
 
 #myInput {
-  background-image: url('/css/searchicon.png');
+ 
   background-position: 10px 10px;
   background-repeat: no-repeat;
   width: 100%;
@@ -84,6 +84,7 @@
                     <td><c:out value="${ehdokkaat.postitoimipaikka}" /></td>
                     <td><c:out value="${ehdokkaat.lahiosoite}" /></td>
                     <td><c:out value="${ehdokkaat.miksi}" /></td>
+                    <td>  <a href="./ehdokkaatclient?deleteId=${ehdokkaat.id}">Remove</a><br>    </td>
                 </tr>
             </c:forEach>
         </table>

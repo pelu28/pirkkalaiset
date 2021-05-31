@@ -1,6 +1,8 @@
 package data;
  
 import java.sql.*;
+
+import com.google.appengine.repackaged.org.apache.commons.codec.digest.Crypt;
  
 public class UserDAO {
 
@@ -10,8 +12,9 @@ public class UserDAO {
 		// Tietokantayhteyden parametrit
 		String jdbcURL = "jdbc:mysql://localhost:3306/vaalikone";
         String dbUser = "root";
-        String dbPassword = "root";
- 
+        String dbPassword = "1234";
+        String s = Crypt.crypt(dbPassword);
+        
         Class.forName("com.mysql.jdbc.Driver");
         Connection connection = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
         String sql = "SELECT * FROM users WHERE email = ? and password = ?";

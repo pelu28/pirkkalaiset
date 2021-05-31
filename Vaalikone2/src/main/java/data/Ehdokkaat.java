@@ -2,13 +2,16 @@ package data;
 
 import java.io.Serializable;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+
+
 @Entity
-public class Ehdokkaat {
+public class Ehdokkaat implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -22,6 +25,7 @@ public class Ehdokkaat {
     private String miksi;
     
     
+	
     
    
     public Ehdokkaat() {
@@ -171,6 +175,10 @@ public class Ehdokkaat {
 
 	public void setMiksi(String miksi) {
 		this.miksi = miksi;
+	}
+	
+	public String toString() {
+		return this.puolue+" "+this.etunimi+" "+this.sukunimi+" "+this.lahiosoite+" "+this.postinumero+" "+this.postitoimipaikka+ " "+this.miksi;
 	}
 }
    

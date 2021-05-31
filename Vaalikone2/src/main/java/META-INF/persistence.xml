@@ -5,6 +5,8 @@
 	
 	<persistence-unit name="Vaalikone2">
 	<class>data.Ehdokkaat</class>
+	<class>data.Ehdokas</class>
+	<class>data.Puolue</class>
 		
 <!-- If using MySQL 5.7 -->
 <!--  
@@ -24,8 +26,8 @@
 	    <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
 	    <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/vaalikone" />
 	    <property name="javax.persistence.jdbc.user" value="root" />
-	    <property name="javax.persistence.jdbc.password" value="caution12" />
-	    <property name="eclipselink.ddl-generation" value="create-tables" />
+	    <property name="javax.persistence.jdbc.password" value="root" />
+	   
 	</properties>
 	
 	</persistence-unit>

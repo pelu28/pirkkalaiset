@@ -59,7 +59,7 @@
             </c:forEach>
          
         </table>
-        <a href="rest/ehdokkaatservice/all">Ehdokkaat JSON-muodossa</a>
+        <a href="rest/ehdokkaatservice/getall">Ehdokkaat JSON-muodossa</a>
         
     </div>
     <script>

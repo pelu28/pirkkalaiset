@@ -24,7 +24,7 @@
         SELECT * FROM ehdokkaat;
     </sql:query>
     
- 
+  <h1>Ehdokkaiden selaaminen</h1>
      
     <div align="center">
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Kirjoita puolueen nimi" title="Type in a name">

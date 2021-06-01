@@ -8,8 +8,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Ehdokkaat</title>
+  <link rel="stylesheet" type="text/css" href="styles.css"/>
 </head>
+
 <body>
+ <a href="./etusivu.html" class="button1">Takaisin</a>
+ <div class="background" align="center">
     <sql:setDataSource
         var="myDS"
         driver="com.mysql.jdbc.Driver"
@@ -22,42 +26,8 @@
         SELECT * FROM ehdokkaat;
     </sql:query>
     
-    <style>
-* {
-  box-sizing: border-box;
-}
-
-#myInput {
+  <h1>Ehdokkaiden selaaminen</h1>
  
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  width: 100%;
-  font-size: 16px;
-  padding: 12px 20px 12px 40px;
-  border: 1px solid #ddd;
-  margin-bottom: 12px;
-}
-
-#myTable {
-  border-collapse: collapse;
-  width: 100%;
-  border: 1px solid #ddd;
-  font-size: 18px;
-}
-
-#myTable th, #myTable td {
-  text-align: left;
-  padding: 12px;
-}
-
-#myTable tr {
-  border-bottom: 1px solid #ddd;
-}
-
-#myTable tr.header, #myTable tr:hover {
-  background-color: #f1f1f1;
-}
-</style>
      
     <div align="center">
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Kirjoita puolueen nimi" title="Type in a name">
@@ -84,9 +54,10 @@
                     <td><c:out value="${ehdokkaat.postitoimipaikka}" /></td>
                     <td><c:out value="${ehdokkaat.lahiosoite}" /></td>
                     <td><c:out value="${ehdokkaat.miksi}" /></td>
-                    <td>  <a href="./ehdokkaatclient?deleteId=${ehdokkaat.id}">Remove</a><br>    </td>
+                    
                 </tr>
             </c:forEach>
+         
         </table>
         <a href="rest/ehdokkaatservice/all">Ehdokkaat JSON-muodossa</a>
         

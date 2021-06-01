@@ -1,7 +1,7 @@
 package app;
 
 import java.io.*;
-//import java.io.Serializable;
+import java.io.Serializable;
 import java.sql.SQLException;
  
 import javax.servlet.*;
@@ -32,10 +32,10 @@ public class UserLogin extends HttpServlet {
             String destPage = "Login.jsp";
              
             if (user != null) {
-                HttpSession session = request.getSession();
+                HttpSession session = request.getSession(); // aloita sessio
                 session.setAttribute("user", user);
-                response.sendRedirect(request.getContextPath() + "/list"); //uusin muutos
-                //destPage = "/list";
+                response.sendRedirect(request.getContextPath() + "/addEhdokas.html"); //uusin muutos
+                destPage = "/addEhdokas.html"; // ohjaussivu
             } else {
                 String message = "Väärä käyttäjätunnus / salasana";
                 request.setAttribute("message", message);

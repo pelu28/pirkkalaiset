@@ -3,9 +3,6 @@ package app;
 import java.io.*;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,110 +16,96 @@ import javax.ws.rs.client.Invocation.Builder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
-import dao.EhdokkaatDao; 
 import data.*;
 
-
-/**
- * Servlet implementation class BookClient
- */
 @WebServlet("/ehdokkaatclient")
 public class EhdokkaatClient extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
     public EhdokkaatClient() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-    /**
-     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
         response.setContentType("text/html");
-        PrintWriter out=response.getWriter();
+        PrintWriter out = response.getWriter();
        
         String deleteId=request.getParameter("deleteId");
        
-        //Including an HTML form + start of the html page
-        RequestDispatcher rd=request.getRequestDispatcher("./ehdokasform.html");
+        //Tulostetaan HTML-sivun alku ja lomake
+        RequestDispatcher rd = request.getRequestDispatcher("./ehdokasform.html");
         rd.include(request,  response);
 
-       
-        boolean deleteOk=false;
+        boolean deleteOk = false;
         if (deleteId!=null) {
             if (deleteEhdokkaat(deleteId)) {
                 out.println("Ehdokas on poistettu!<br>");
             }
         }
        
-        // TODO Auto-generated method stub
         String uri = "http://127.0.0.1:8080/rest/ehdokkaatservice/getall";
 
-        Client asiakas=ClientBuilder.newClient();
-        WebTarget wt=asiakas.target(uri);
-        Builder b=wt.request();
+        Client asiakas = ClientBuilder.newClient();
+        WebTarget wt = asiakas.target(uri);
+        Builder b = wt.request();
        
-       
-        //Create a GenericType to be able to get List of objects
-        //This will be the second parameter of post method
+        //Luodaan GenericType, jotta saadaan lista objekteista
+        //post-metodin toinen parametri
         GenericType<List<Ehdokkaat>> genericList = new GenericType<List<Ehdokkaat>>() {};
        
-        //Getting all the Books
-        List<Ehdokkaat> returnedList=b.get(genericList);
+        //Haetaan kaikki ehdokkaat
+        List<Ehdokkaat> returnedList = b.get(genericList);
        
-        //And print the objects
+        //Tulostetaan ehdokkaat ja poisto-linkit
+        out.println("<h1>Ehdokkaat</h1>");
+        out.println("<table border=1>");
+        out.println("<tr><th>Numero</th><th>Puolue</th><th>Etunimi</th><th>Sukunimi</th><th>Osoite</th><th>Postinumero</th><th>Kunta</th><th colspan=2 align=left>Miksi ehdokkaaksi</th><tr>"); 
         for (int i=0;i<returnedList.size();i++) {
-            Ehdokkaat ehdokkaat=returnedList.get(i);
-            out.println(ehdokkaat+" <a href='./ehdokkaatclient?deleteId="+ehdokkaat.getId()+"'>Poista ehdokas</a><br>");
+            Ehdokkaat ehdokkaat = returnedList.get(i);
+            out.println("<tr><td>"+ehdokkaat.getEhdokasnro()+"</td><td>"+ehdokkaat.getPuolue()+"</td><td>"+ehdokkaat.getEtunimi()+"</td><td>"+ehdokkaat.getSukunimi()+"</td><td>"+ehdokkaat.getLahiosoite()+"</td><td>"+ehdokkaat.getPostinumero()+"</td><td>"+ehdokkaat.getPostitoimipaikka()+"</td><td>"+ehdokkaat.getMiksi()+"</td><td>"+"<a href='./ehdokkaatclient?deleteId="+ehdokkaat.getId()+"'>Poista ehdokas</a></td></tr>");
         }
-       
-        //Printing the end of an html document
+        
+        out.println("</table>");  
+
+        //Tulosteaan html-dokumentin loppu
         out.println("</body></html>");
     }
 
     private boolean deleteEhdokkaat(String deleteId) {
         String uri = "http://127.0.0.1:8080/rest/ehdokkaatservice/deleteehdokas/"+deleteId;
 
-        Client asiakas=ClientBuilder.newClient();
-        WebTarget wt=asiakas.target(uri);
-        Builder b=wt.request();
+        Client asiakas = ClientBuilder.newClient();
+        WebTarget wt = asiakas.target(uri);
+        Builder b = wt.request();
        
-        boolean ok=b.delete(Boolean.class);
+        boolean ok = b.delete(Boolean.class);
         return ok;
     }
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
+
         String uri = "http://127.0.0.1:8080/rest/ehdokkaatservice/addehdokas";
 
-        //A Book object to send to our web-service
-        String ehdokasnro=request.getParameter("ehdokasnro");
-        String puolue=request.getParameter("puolue");
-        String etunimi=request.getParameter("etunimi");
-        String sukunimi=request.getParameter("sukunimi");
-        String postinumero=request.getParameter("postinumero");
-        String postitoimipaikka=request.getParameter("postitoimipaikka");
-        String lahiosoite=request.getParameter("lahiosoite");
-        String miksi=request.getParameter("miksi");
-        Ehdokkaat ehdokkaat=new Ehdokkaat(ehdokasnro, puolue, etunimi, sukunimi, postinumero, postitoimipaikka, lahiosoite, miksi);
+        //Lähetettävä ehdokas-objekti
+        String ehdokasnro = request.getParameter("ehdokasnro");
+        String puolue = request.getParameter("puolue");
+        String etunimi = request.getParameter("etunimi");
+        String sukunimi = request.getParameter("sukunimi");
+        String postinumero = request.getParameter("postinumero");
+        String postitoimipaikka = request.getParameter("postitoimipaikka");
+        String lahiosoite = request.getParameter("lahiosoite");
+        String miksi = request.getParameter("miksi");
+        
+        Ehdokkaat ehdokkaat = new Ehdokkaat(ehdokasnro, puolue, etunimi, sukunimi, postinumero, postitoimipaikka, lahiosoite, miksi);
        
-        Client c=ClientBuilder.newClient();
-        WebTarget wt=c.target(uri);
-        Builder b=wt.request();
+        Client c = ClientBuilder.newClient();
+        WebTarget wt = c.target(uri);
+        Builder b = wt.request();
         Entity<Ehdokkaat> e=Entity.entity(ehdokkaat,MediaType.APPLICATION_JSON);
        
         b.post(e);
 
-       
         doGet(request, response);
     }
 

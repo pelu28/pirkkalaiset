@@ -5,18 +5,9 @@
 	
 	<persistence-unit name="Vaalikone2">
 	<class>data.Ehdokkaat</class>
-	<class>data.Ehdokas</class>
-	<class>data.Puolue</class>
+
 		
-<!-- If using MySQL 5.7 -->
-<!--  
-	as a root user give a command
-	use performance_schema; 
-	GRANT SELECT ON performance_schema.session_variables TO pena@localhost;
-	
-	Change pena to the username you are using below in the property jdbc.user.
-	 -->		
-		
+
 <!--  jdbcDriver == class, where in the implementation of database functions--> 
 <!--  jdbcUrl == address to the database--> 
 <!--  jdbcUser == user name to the database--> 

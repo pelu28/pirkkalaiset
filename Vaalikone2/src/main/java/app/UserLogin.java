@@ -34,7 +34,7 @@ public class UserLogin extends HttpServlet {
             if (user != null) {
                 HttpSession session = request.getSession(); // aloita sessio
                 session.setAttribute("user", user);
-                response.sendRedirect(request.getContextPath() + "/addEhdokas.html"); //uusin muutos
+                response.sendRedirect(request.getContextPath() + "/ehdokasform.html"); //uusin muutos
                 destPage = "/ehdokasform.html"; // ohjaussivu
             } else {
                 String message = "Väärä käyttäjätunnus / salasana";

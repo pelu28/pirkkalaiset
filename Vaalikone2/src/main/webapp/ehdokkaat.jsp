@@ -10,7 +10,9 @@
 <title>Ehdokkaat</title>
   <link rel="stylesheet" type="text/css" href="styles.css"/>
 </head>
+
 <body>
+ <a href="./etusivu.html" class="button1">Takaisin</a>
  <div class="background" align="center">
     <sql:setDataSource
         var="myDS"
@@ -25,6 +27,7 @@
     </sql:query>
     
   <h1>Ehdokkaiden selaaminen</h1>
+ 
      
     <div align="center">
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Kirjoita puolueen nimi" title="Type in a name">
